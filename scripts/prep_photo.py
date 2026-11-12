@@ -17,14 +17,16 @@ import sys
 import cv2
 import numpy as np
 from PIL import Image
-from rembg import remove
+from rembg import new_session, remove
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 INP = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "source-photo.jpg")
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "..", "source-prepped.png")
+# u2netp is ~5 MB and runs in small-memory environments; swap for "isnet-general-use" for finer edges
+SESSION = new_session("u2netp")
 
 # 1. cut out the subject
-cut = remove(Image.open(INP).convert("RGBA"))
+cut = remove(Image.open(INP).convert("RGBA"), session=SESSION)
 rgb = np.array(cut.convert("RGB"))
 alpha = np.array(cut.split()[-1])                 # 0 = background
 

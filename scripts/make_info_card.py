@@ -43,30 +43,29 @@ ACCENT = "#22d3ee"
 #    ("bul", text)          -> green dot + light bullet
 #    ("gap",)               -> a little vertical space
 # ===========================================================================
-HOST = "hxrshityadav"   # shown as  hxrshityadav@github  in the header
+HOST = "khushi-426"   # shown as  khushi-426@github  in the header
 
+# All facts come from the resume (source of truth). Add only public professional links.
 ROWS = [
     ("host",),
-    ("kv", "Now",      "Fullstack Developer & AI Builder"),
-    ("kv", "Focus",    "SaaS products · developer tooling"),
-    ("kv", "Building", "AI-powered web apps end-to-end"),
+    ("kv", "Now",      "Computer Engineering @ PICT · CGPA 9.87/10"),
+    ("kv", "Focus",    "Backend systems · databases · agentic AI"),
+    ("kv", "Based",    "Pune, Maharashtra, India"),
     ("gap",),
     ("sec", "Stack"),
-    ("kv", "Frontend",  "React · Next.js · TypeScript"),
-    ("kv", "Backend",   "Node.js · Express · PostgreSQL"),
-    ("kv", "AI / ML",   "OpenAI · LangChain · Hugging Face"),
-    ("kv", "Cloud",     "Vercel · Docker · AWS"),
-    ("kv", "Tools",     "Git · Prisma · Tailwind CSS"),
+    ("kv", "Languages", "Java · C++ · Python · JavaScript · SQL"),
+    ("kv", "Backend",   "Node.js · Express.js · FastAPI · REST APIs"),
+    ("kv", "AI",        "LangGraph · multi-agent orchestration"),
+    ("kv", "Data",      "PostgreSQL · MySQL · MongoDB · Docker"),
     ("gap",),
     ("sec", "Links"),
-    ("kv", "Portfolio", "harshityadav.dev"),
-    ("kv", "LinkedIn",  "in/hxrshityadav"),
-    ("kv", "X / Twitter", "@harshityadav"),
-    ("kv", "Instagram", "@hxrshityadav"),
+    ("kv", "LinkedIn",  "in/khushichakke"),
+    ("kv", "GitHub",    "Khushi-426"),
+    ("kv", "LeetCode",  "KhushiChakke"),
     ("gap",),
     ("sec", "Highlights"),
-    ("bul", "Open-source contributor & AI app builder"),
-    ("bul", "Ships full products solo, fast"),
+    ("bul", "Finalist, SEBI TechSprint 2026 (top 8 of 2,664 teams)"),
+    ("bul", "400+ DSA problems solved across LeetCode and CodeChef"),
 ]
 
 

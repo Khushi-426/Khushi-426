@@ -21,7 +21,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # defaults to the prepped grayscale image (see prep_photo.py), which already has
 # the background removed + local contrast applied.
 SRC = sys.argv[1] if len(sys.argv) > 1 else os.path.join(HERE, "..", "source-prepped.png")
-OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "..", "avi-ascii.svg")
+OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(HERE, "..", "assets", "portrait-ascii.svg")
 
 COLS = 100
 ROWS = 53
@@ -31,11 +31,11 @@ RAMP = " .`:-=+*cs#%@"  # bright(sparse) -> dark(dense); leading space clears bg
 
 # the prepped image already has bg removed + CLAHE local contrast, so only
 # light global tuning is needed here.
-CONTRAST = 0.92
+CONTRAST = 1.1
 BRIGHTNESS = 1.0
-GAMMA = 1.65          # >1 brightens mids -> face lands in sparser chars
+GAMMA = 1.25          # >1 brightens mids -> face lands in sparser chars
 SHARPEN = False
-WHITE_FLOOR = 0.60    # luminance above this is forced to blank (space)
+WHITE_FLOOR = 0.82    # luminance above this is forced to blank (space)
 
 PAD = 20
 TITLEBAR_H = 30
@@ -45,12 +45,14 @@ ART_H = ROWS * CELL_H
 CANVAS_W = ART_W + PAD * 2
 CANVAS_H = TITLEBAR_H + ART_H + STATUS_H + PAD
 
-BG = "#0d1117"
-BG2 = "#111722"
-FRAME = "#30363d"
-TITLE_TEXT = "#7d8590"
-INK = "#c9d1d9"      # the single ascii color (matches Andrew6rant)
-CURSOR = "#c9d1d9"
+# KHUSHI.OS pastel palette: cream window, plum ink, lavender chrome
+BG = "#FFF9EE"
+BG2 = "#F4ECFF"
+FRAME = "#DCCEFF"
+TITLE_TEXT = "#786A91"
+INK = "#382F4A"      # the single ascii colour (deep plum)
+CURSOR = "#382F4A"
+DOTS = ["#FFD6C2", "#FFF0A8", "#BFE8D5"]   # peach / butter / mint window dots
 
 # ---- reveal timing (one-shot; a cursor rasters top -> bottom) -------------
 ROW_DUR = 0.11
@@ -99,11 +101,14 @@ parts.append(f'<rect width="{CANVAS_W}" height="{CANVAS_H}" rx="12" fill="url(#b
 parts.append(f'<rect x="0.5" y="0.5" width="{CANVAS_W-1}" height="{CANVAS_H-1}" rx="12" '
              f'fill="none" stroke="{FRAME}" stroke-width="1"/>')
 
+USER_HANDLE = os.environ.get("GH_PROFILE_USER", "Khushi-426")
+FULL_NAME = os.environ.get("PROFILE_FULL_NAME", "Khushi Chakke")
+
 parts.append(f'<line x1="0" y1="{TITLEBAR_H}" x2="{CANVAS_W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>')
-for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
+for i, dotcol in enumerate(DOTS):
     parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
 parts.append(f'<text x="{CANVAS_W/2}" y="{TITLEBAR_H/2 + 4}" fill="{TITLE_TEXT}" font-size="12" '
-             f'text-anchor="middle">harshit@github: ~$ ./portrait.sh</text>')
+             f'text-anchor="middle">{USER_HANDLE}@github: ~$ ./portrait.sh</text>')
 
 # one <text> per row (single color -> no per-char markup, tiny file)
 font_size = CELL_H * 0.86
@@ -136,10 +141,12 @@ for ry, line in enumerate(rows_txt):
 # status bar with a steady blinking cursor
 status_line_y = TITLEBAR_H + ART_H + PAD * 0.35
 status_y = status_line_y + 19
+whoami_str = f"{USER_HANDLE}@github:~$ whoami {FULL_NAME}"
+cursor_offset = PAD + int(len(whoami_str) * 7.6)
 parts.append(f'<line x1="0" y1="{status_line_y:.1f}" x2="{CANVAS_W}" y2="{status_line_y:.1f}" stroke="{FRAME}"/>')
 parts.append(f'<text x="{PAD}" y="{status_y:.1f}" fill="{TITLE_TEXT}" font-size="13">'
-             f'harshit@github:~$ whoami <tspan fill="{INK}">Harshit Yadav</tspan></text>')
-parts.append(f'<rect x="{PAD+218}" y="{status_y-12:.1f}" width="8" height="14" fill="{INK}">'
+             f'{USER_HANDLE}@github:~$ whoami <tspan fill="{INK}">{FULL_NAME}</tspan></text>')
+parts.append(f'<rect x="{cursor_offset}" y="{status_y-12:.1f}" width="8" height="14" fill="{INK}">'
              f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.51;1" '
              f'dur="1s" repeatCount="indefinite"/></rect>')
 

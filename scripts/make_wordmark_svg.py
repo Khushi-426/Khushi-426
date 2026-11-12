@@ -33,7 +33,7 @@ from PIL import Image, ImageDraw, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 # ---- geometry / grid ------------------------------------------------------
-COLS = int(os.environ.get("WORDMARK_COLS", 92))
+COLS = int(os.environ.get("WORDMARK_COLS", 124))
 ROWS = 0               # derived from the art -- see fit()
 ROW_MARGIN = int(os.environ.get("WORDMARK_ROW_MARGIN", 15))
 CELL_W = 4.9
@@ -55,7 +55,7 @@ if not os.path.exists(DEFAULT_FONT):
 
 FONT_PATH = os.environ.get("WORDMARK_FONT", DEFAULT_FONT)
 FONT_INDEX = int(os.environ.get("WORDMARK_FONT_INDEX", DEFAULT_INDEX))   # face within a .ttc
-TEXT = os.environ.get("WORDMARK_TEXT", "HARSHIT")
+TEXT = os.environ.get("WORDMARK_TEXT", "KHUSHI")
 
 MASK_H = 320           # glyph raster height in mask px (drives voxel density)
 TRACKING = 0.18        # extra letter-spacing, in em. keeps letters clearly separated
@@ -79,11 +79,13 @@ FOG = 0.34             # how much the far end of the word dims, 0..1
 FOG_SPAN = 0.55        # world-units of depth the fog ramp covers
 
 # ---- palette (matches the rest of the profile) ----------------------------
-BG = "#0d1117"
-BG2 = "#111722"
-FRAME = "#30363d"
-TITLE_TEXT = "#7d8590"
-INK = "#c9d1d9"
+# KHUSHI.OS pastel palette (matches scripts/make_ascii_svg.py)
+BG = "#FFF9EE"
+BG2 = "#F4ECFF"
+FRAME = "#DCCEFF"
+TITLE_TEXT = "#786A91"
+INK = "#382F4A"
+DOTS = ["#FFD6C2", "#FFF0A8", "#BFE8D5"]
 
 PAD = 18
 TITLEBAR_H = 28
@@ -251,10 +253,11 @@ def emit(frames, mode, out, dur, reveal):
         f'fill="none" stroke="{FRAME}" stroke-width="1"/>',
         f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w:.0f}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>',
     ]
-    for i, dot in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
+    for i, dot in enumerate(DOTS):
         p.append(f'<circle cx="{PAD + i*15}" cy="{TITLEBAR_H/2}" r="4.5" fill="{dot}"/>')
+    user_handle = os.environ.get("GH_PROFILE_USER", "Khushi-426")
     p.append(f'<text x="{canvas_w/2:.0f}" y="{TITLEBAR_H/2 + 4:.0f}" fill="{TITLE_TEXT}" '
-             f'font-size="11.5" text-anchor="middle">harshit@github: ~$ ./wordmark.sh --3d</text>')
+             f'font-size="11.5" text-anchor="middle">{user_handle}@github: ~$ ./khushi.sh --3d</text>')
 
     def frame_g(rows, extra=""):
         out_rows = []

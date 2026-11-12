@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="220" viewBox="0 0 420 220" role="img" aria-label="Pixel illustration of a campus marketplace: item tiles in a feed, with a chat bubble">
+<rect x="0" y="0" width="420" height="220" rx="16" fill="#FFF9EE" stroke="#DCCEFF" stroke-width="2"/>
+<rect x="16" y="16" width="388" height="22" rx="8" fill="#DCCEFF" stroke="#382F4A" stroke-width="1"/>
+<rect x="26" y="22" width="90" height="10" rx="4" fill="#382F4A" opacity="0.5"/>
+<rect x="310" y="22" width="84" height="10" rx="4" fill="#382F4A" opacity="0.25"/>
+<rect x="24" y="46" width="86" height="60" rx="10" fill="#BFE8D5" stroke="#382F4A" stroke-width="1.2"/>
+<rect x="46" y="62" width="42" height="26" rx="4" fill="#FFF9EE" stroke="#382F4A" stroke-width="1"/>
+<rect x="52" y="92" width="30" height="5" rx="2" fill="#382F4A" opacity="0.35"/>
+<rect x="120" y="46" width="86" height="60" rx="10" fill="#FFF0A8" stroke="#382F4A" stroke-width="1.2"/>
+<rect x="142" y="62" width="42" height="26" rx="4" fill="#FFF9EE" stroke="#382F4A" stroke-width="1"/>
+<rect x="148" y="92" width="30" height="5" rx="2" fill="#382F4A" opacity="0.35"/>
+<rect x="216" y="46" width="86" height="60" rx="10" fill="#FFD6C2" stroke="#382F4A" stroke-width="1.2"/>
+<rect x="238" y="62" width="42" height="26" rx="4" fill="#FFF9EE" stroke="#382F4A" stroke-width="1"/>
+<rect x="244" y="92" width="30" height="5" rx="2" fill="#382F4A" opacity="0.35"/>
+<rect x="24" y="116" width="86" height="60" rx="10" fill="#DCCEFF" stroke="#382F4A" stroke-width="1.2"/>
+<rect x="46" y="132" width="42" height="26" rx="4" fill="#FFF9EE" stroke="#382F4A" stroke-width="1"/>
+<rect x="52" y="162" width="30" height="5" rx="2" fill="#382F4A" opacity="0.35"/>
+<rect x="120" y="116" width="86" height="60" rx="10" fill="#BFE8D5" stroke="#382F4A" stroke-width="1.2"/>
+<rect x="142" y="132" width="42" height="26" rx="4" fill="#FFF9EE" stroke="#382F4A" stroke-width="1"/>
+<rect x="148" y="162" width="30" height="5" rx="2" fill="#382F4A" opacity="0.35"/>
+<rect x="216" y="116" width="86" height="60" rx="10" fill="#FFF0A8" stroke="#382F4A" stroke-width="1.2"/>
+<rect x="238" y="132" width="42" height="26" rx="4" fill="#FFF9EE" stroke="#382F4A" stroke-width="1"/>
+<rect x="244" y="162" width="30" height="5" rx="2" fill="#382F4A" opacity="0.35"/>
+<rect x="270" y="180" width="126" height="28" rx="14" fill="#FFFFFF" stroke="#382F4A" stroke-width="1.5"/>
+<path d="M286 206 l-6 8 l12 -4 z" fill="#FFFFFF" stroke="#382F4A" stroke-width="1.5" stroke-linejoin="round"/>
+<circle cx="304" cy="194" r="4" fill="#382F4A" opacity="0.25"><animate attributeName="opacity" values="0.25;1;0.25" dur="1.2s" begin="0.0s" repeatCount="indefinite"/></circle>
+<circle cx="330" cy="194" r="4" fill="#382F4A" opacity="0.25"><animate attributeName="opacity" values="0.25;1;0.25" dur="1.2s" begin="0.2s" repeatCount="indefinite"/></circle>
+<circle cx="356" cy="194" r="4" fill="#382F4A" opacity="0.25"><animate attributeName="opacity" values="0.25;1;0.25" dur="1.2s" begin="0.4s" repeatCount="indefinite"/></circle>
+<text x="24" y="204" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12" fill="#786A91">live feed · realtime messages</text>
+</svg>
